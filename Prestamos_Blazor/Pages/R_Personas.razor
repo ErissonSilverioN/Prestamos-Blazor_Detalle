@@ -4,11 +4,12 @@
 
 @inject IToastService toastService
 @using Prestamos_Blazor.Models;
-@using Prestamos_Blazor.BLL; 
+@using Prestamos_Blazor.BLL;
+
 
 
 <EditForm Model="personas" OnValidSubmit="Guardar">
-    <DataAnnotationsValidator/>
+    <DataAnnotationsValidator />
 
 
     <div class="card">
@@ -78,21 +79,23 @@
 
                 <div class="form-group">
                     <label><b>Balance</b></label>
-                    <InputNumber @bind-Value="personas.Balance" class="form-control" Readonly="true" ></InputNumber>
-                    
+                    <InputNumber @bind-Value="personas.Balance" class="form-control" Readonly="true"></InputNumber>
+
                 </div>
-               
+
 
             </form>
 
             <div class="card-footer">
                 <div class="form-group text-center" display: inline-block>
 
-                    <button type="button"class="btn btn-primary" @onclick="Nuevo">Nuevo</button>
+                    <button type="button" class="btn btn-primary" @onclick="Nuevo">Nuevo</button>
 
                     <button type="submit" class="btn btn-success">Guardar</button>
 
                     <button type="button" class="btn btn-danger" @onclick="Eliminar">Eliminar</button>
+
+                    
 
                 </div>
 
@@ -122,7 +125,6 @@
 
         Nuevo();
         Buscar();
-
         base.OnInitialized();
     }
 
@@ -140,7 +142,7 @@
             }
             else
             {
-                toastService.ShowWarning("No Encontrado");
+                toastService.ShowWarning("NO ENCONTRADO");
             }
         }
     }
@@ -160,11 +162,11 @@
         if (paso)
         {
             Nuevo();
-            toastService.ShowSuccess("Se Guardo");
+            toastService.ShowSuccess("GUARDADO");
         }
         else
         {
-            toastService.ShowError("No se Guardo");
+            toastService.ShowError("NO SE PUDO GUARDAR");
         }
 
     }
@@ -179,12 +181,12 @@
         if (elimino)
         {
             Nuevo();
-            toastService.ShowWarning("Eliminado");
+            toastService.ShowWarning("ELIMINADO");
 
         }
         else
         {
-            toastService.ShowError("No se elimino");
+            toastService.ShowError("NO SE PUDO ELIMINAR");
         }
     }
 }

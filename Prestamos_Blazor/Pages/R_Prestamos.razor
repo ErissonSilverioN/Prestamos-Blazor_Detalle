@@ -4,7 +4,7 @@
 @using Prestamos_Blazor.Models;
 @using Prestamos_Blazor.BLL;
 
-@inject IToastService toast
+@inject IToastService toastService
 
 <EditForm Model="prestamos" OnValidSubmit="Guardar">
     <DataAnnotationsValidator/>
@@ -90,7 +90,7 @@
 
         </div>
 
-        <h3>@Display_MSJ</h3>
+        
 
     </div>
 
@@ -112,7 +112,7 @@
     private string PersonaSeleccionada { get; set; }
 
 
-    public string Display_MSJ;
+
 
 
     protected override void OnInitialized()
@@ -144,7 +144,7 @@
             }
             else
             {
-                Display_MSJ = "!!NO ENCONTRADO¡¡";
+                toastService.ShowWarning("NO ENCONTRADO");
             }
         }
 
@@ -154,7 +154,7 @@
     private void Nuevo()
     {
         this.prestamos = new Prestamos();
-        Display_MSJ = " ";
+
     }
 
 
@@ -166,13 +166,13 @@
 
         if (paso)
         {
-            Display_MSJ = "!!GUARDADO¡¡";
+            toastService.ShowSuccess("GUARDADO");
             Nuevo();
 
         }
         else
         {
-            Display_MSJ = "!!NO SE PUDO GUARDAR¡¡";
+            toastService.ShowError("NO SE PUDO GUARDAR");
         }
 
 
@@ -187,7 +187,11 @@
         if (paso)
         {
             Nuevo();
-            Display_MSJ = "!!ELIMINADO¡¡";
+            toastService.ShowWarning("ELIMINADO");
+        }
+        else
+        {
+            toastService.ShowError("NO SE PUDO ELIMINAR");
         }
     }
 
