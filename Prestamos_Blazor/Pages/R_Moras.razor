@@ -24,7 +24,7 @@
                 <div class="form-row">
 
                     <div class="form-group col-sm-5     col-md-5     col-lg-4     col-xl-4">
-                        <label><b>MoraId</b></label>
+                        <label><b>Mora ID</b></label>
                         <div class="input-group ">
                             <InputNumber @bind-Value="@moras.MoraId" class="form-control" />
                             <div class="input-group-append">
@@ -72,8 +72,8 @@
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
-                                <th>Id</th>
-                                <th>MoraId</th>
+                                @*<th>Id</th>
+                                <th>MoraId</th>*@
                                 <th>PrestamoId</th>
                                 <th>Valor</th>
                                 <th></th>
@@ -83,8 +83,8 @@
                             @foreach (var item in moras.MorasDetalles)
                             {
                                 <tr>
-                                    <th>@item.Id</th>
-                                    <th>@item.MoraId</th>
+                                    @*<th>@item.Id</th>
+                                    <th>@item.MoraId</th>*@
                                     <th>@item.PrestamoId</th>
                                     <th>@item.Valor</th>
                                     <th><button type="button" class="btn btn-outline-danger btn-sm" @onclick="(()=> EliminarPrestamo(item))">Eliminar</button></th>
@@ -179,8 +179,8 @@
         {
             moras.MorasDetalles.Add(new MorasDetalle()
             {
-                Id = 0,
-                MoraId = moras.MoraId,
+                //Id = 0,
+                //MoraId = moras.MoraId,
                 PrestamoId = moras.PretamoId,
                 Valor = Valor_,
 

@@ -30,6 +30,16 @@ namespace Prestamos_Blazor.Models
 
         public DateTime Fecha { get; set; }
 
-
+        public Personas()
+        {
+            PersonaId = 0;
+            Nombre = string.Empty;
+            Cedula = string.Empty;
+            Telefono = string.Empty;
+            Direccion = string.Empty;
+            Balance = 0;
+            FechaNacimiento = DateTime.Now;
+            Fecha = DateTime.Now;
+        }
     }
 }
