@@ -176,6 +176,12 @@
     private void Agregar()
     {
 
+        if (Valor_ == 0)
+        {
+            toastService.ShowWarning("DEBE INGRESAR UN VALOR");
+        }
+        else
+
         {
             moras.MorasDetalles.Add(new MorasDetalle()
             {
